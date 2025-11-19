@@ -82,10 +82,10 @@ export default function RequestFormBlock({ block }: { block: RequestFormProps })
   }
 
   return (
-    <section id="contact" className="hidden lg:block md:container md:mx-auto md:py-24 md:px-16">
+    <section id="contact" className="lg:block md:container md:mx-auto md:py-24 md:px-16">
       <h1 className="text-4xl text-center pb-12">{block.heading}</h1>
       <div
-        className="flex"
+        className="hidden lg:flex"
         style={{
           backgroundImage: 'url("/contact-graphic.svg")',
           width: '100%',
@@ -95,7 +95,7 @@ export default function RequestFormBlock({ block }: { block: RequestFormProps })
         }}
       >
         {/* Left Side */}
-        <div className="flex flex-col gap-5 w-1/2 pt-40 pl-40 text-black">
+        <div className="flex flex-col gap-5 w-1/2 pt-40 pl-40 text-white">
           <h1 className="text-3xl pb-4">{block.title}</h1>
           {block.contacts?.map((contact, i) => (
             <div key={i}>
@@ -118,7 +118,7 @@ export default function RequestFormBlock({ block }: { block: RequestFormProps })
 
         {/* Right Side */}
         <div className="w-1/2 py-40 pr-24">
-          {typeof block?.form === 'object' && block?.form?.title === 'requestForm' && (
+          {typeof block?.form === 'object' && block?.form?.title === 'requestFormSimplyDigital' && (
             <div className="flex flex-col gap-6">
               <SuccessModal isOpen={showSuccessModal} onClose={() => setShowSuccessModal(false)}>
                 {block.form?.confirmationMessage ? (
@@ -145,6 +145,36 @@ export default function RequestFormBlock({ block }: { block: RequestFormProps })
             </div>
           )}
         </div>
+      </div>
+
+      {/* Mobile */}
+      <div className="px-6 py-8 md:p-12 m-6 bg-primary rounded-custom lg:hidden">
+        {typeof block?.form === 'object' && block?.form?.title === 'requestFormSimplyDigital' && (
+          <div className="flex flex-col gap-6">
+            <SuccessModal isOpen={showSuccessModal} onClose={() => setShowSuccessModal(false)}>
+              {block.form?.confirmationMessage ? (
+                <RichText data={block.form.confirmationMessage} />
+              ) : (
+                <p>Форма сәтті жіберілді!</p>
+              )}
+            </SuccessModal>
+            <FormBuilder
+              form={block.form}
+              phone={phone}
+              setPhone={setPhone}
+              onSubmit={handleSubmit}
+              error={formState.error ?? undefined}
+              submitButtonLabel={block?.form?.submitButtonLabel || 'Отправить'}
+              classNames={{
+                wrapper: 'flex flex-col gap-3 items-stretch font-inter',
+                input:
+                  'peer w-full rounded-2xl px-4 pt-5 pb-2 text-black bg-white text-lg focus:outline-none focus:ring-2 focus:ring-gray-500',
+                button:
+                  'w-full bg-black text-white px-5 h-[56px] rounded-2xl cursor-pointer font-unbounded hover:text-hover transition',
+              }}
+            />
+          </div>
+        )}
       </div>
     </section>
   )

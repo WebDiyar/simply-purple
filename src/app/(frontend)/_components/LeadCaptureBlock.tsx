@@ -185,12 +185,6 @@ export default function LeadCaptureBlock({ block, formId }: Props) {
               </p>
             )}
 
-            {formState.error && (
-              <p className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg text-center">
-                {formState.error}
-              </p>
-            )}
-
             <form
               onSubmit={handleSubmit}
               className="flex flex-col lg:flex-row gap-2 items-stretch font-inter"
@@ -201,7 +195,7 @@ export default function LeadCaptureBlock({ block, formId }: Props) {
               <button
                 type="submit"
                 disabled={formState.loading}
-                className={`bg-primary text-black px-5 rounded-xl py-4 lg:h-min-full font-unbounded transition ${
+                className={`bg-primary text-white px-5 rounded-xl py-4 lg:h-min-full font-unbounded transition ${
                   formState.loading ? 'opacity-50 cursor-not-allowed' : 'hover:bg-hover'
                 }`}
               >
@@ -229,6 +223,11 @@ export default function LeadCaptureBlock({ block, formId }: Props) {
                 )}
               </button>
             </form>
+            {formState.error && (
+              <p className="bg-red-100 border border-red-500 text-red-700 px-4 py-3 rounded-lg text-center">
+                {formState.error}
+              </p>
+            )}
           </div>
         )}
       </div>

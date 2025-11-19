@@ -145,7 +145,7 @@ export default function ServicesBlock({ heading, solutions }: Props) {
                   backgroundSize: 'contain',
                 }}
               >
-                <div className="flex flex-col gap-2 p-6 md:p-10 text-black">
+                <div className="flex flex-col gap-2 p-6 md:p-10 text-white">
                   <h3 className="text-xl">{solution.name}</h3>
                   <div className="flex flex-wrap w-full gap-2 py-2 z-100">
                     {solution.details?.map((item, i) => (

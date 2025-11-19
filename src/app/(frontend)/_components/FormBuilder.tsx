@@ -49,7 +49,7 @@ export default function FormBuilder({
               placeholder={field.defaultValue}
               className={
                 classNames.textarea ||
-                'w-full rounded-2xl px-4 pt-5 pb-2 h-40 text-black italic bg-white text-base font-light italic focus:outline-none focus:ring-2 focus:ring-gray-500 resize-none'
+                'w-full rounded-2xl px-4 pt-5 pb-2 h-40 text-black italic bg-white text-base font-light focus:outline-none focus:ring-2 focus:ring-gray-500 resize-none'
               }
             />
           ) : (
@@ -76,7 +76,7 @@ export default function FormBuilder({
         </div>
       ))}
 
-      {error && <p className="text-red-600">{error}</p>}
+      {error && <p className="text-[#FF7A85]">{error}</p>}
 
       <button
         type="submit"

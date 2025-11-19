@@ -105,7 +105,7 @@ export const ConsultationForm = ({
           ))}
           <button
             type="submit"
-            className="bg-primary hover:bg-hover transition text-black font-unbounded text-lg rounded-2xl px-6 py-3"
+            className="bg-primary hover:bg-hover transition text-white font-unbounded text-lg rounded-2xl px-6 py-3"
           >
             Отправить
           </button>
