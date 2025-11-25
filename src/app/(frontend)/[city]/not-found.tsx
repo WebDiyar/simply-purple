@@ -22,7 +22,7 @@ export default function NotFound() {
             />
           </div>
           <Link
-            className="bg-primary text-black text-center hover:bg-hover text-sm py-4 md:py-3 px-6 rounded-2xl md:w-fit"
+            className="bg-primary text-white text-center hover:bg-hover text-sm py-4 md:py-3 px-6 rounded-2xl md:w-fit"
             href={'/'}
           >
             Перейти на главную
